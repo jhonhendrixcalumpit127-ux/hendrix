@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Digital Identity | Interactive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a, #1a0a2e, #0f0c29);
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 45px 40px;
+            max-width: 700px;
+            width: 100%;
+            border: 1px solid rgba(0, 255, 255, 0.15);
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.08);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            background: linear-gradient(90deg, #00f5ff, #ff00c8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #aaa;
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+        }
+
+        /* Interactive Button */
+        .reveal-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0a0a1a;
+            background: linear-gradient(90deg, #00f5ff, #00c3ff);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 25px rgba(0, 245, 255, 0.5);
+            text-decoration: none;
+        }
+
+        .reveal-btn:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.8);
+        }
+
+        /* Hidden content that appears */
+        #hobbies-skills {
+            display: none;
+            margin-top: 40px;
+            text-align: left;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            color: #00f5ff;
+            font-size: 1.4rem;
+            margin: 25px 0 12px;
+            border-left: 4px solid #ff00c8;
+            padding-left: 12px;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 10px;
+        }
+
+        ul li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.1rem;
+            transition: 0.2s;
+        }
+
+        ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #00f5ff;
+            font-size: 1.3rem;
+        }
+
+        ul li:hover {
+            color: #00f5ff;
+            transform: translateX(6px);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Jhon Hendrix L. Calumpit</h1>
+        <p class="subtitle">Grade 12 • Datamex College of Saint Adeline</p>
+
+        <!-- INTERACTIVE LINK / BUTTON -->
+        <a href="javascript:void(0)" class="reveal-btn" onclick="showHobbies()">
+            🔥 Click to Reveal My Hobbies & Skills
+        </a>
+
+        <!-- This part is hidden until the button is clicked -->
+        <div id="hobbies-skills">
+            <h2 class="section-title">My Hobbies</h2>
+            <ul>
+                <li>Building websites & coding experiments</li>
+                <li>Playing competitive video games</li>
+                <li>Watching sci-fi movies & series</li>
+                <li>Listening to electronic & lo-fi music</li>
+                <li>Exploring new AI tools & gadgets</li>
+                <li>Digital photography & art</li>
+            </ul>
+
+            <h2 class="section-title">My Skills</h2>
+            <ul>
+                <li>HTML & basic CSS</li>
+                <li>Problem solving & logical thinking</li>
+                <li>Creative design ideas</li>
+                <li>Fast learner with technology</li>
+                <li>Team collaboration</li>
+                <li>Public speaking (basic)</li>
+            </ul>
+        </div>
+
+        <p class="footer">Made with pure HTML </p>
+    </div>
+
+    <script>
+        function showHobbies() {
+            const section = document.getElementById('hobbies-skills');
+            section.style.display = 'block';
+            
+            // Optional: change button text after click
+            document.querySelector('.reveal-btn').innerHTML = '✨ Hobbies & Skills Revealed!';
+            document.querySelector('.reveal-btn').style.background = 'linear-gradient(90deg, #ff00c8, #ff5e00)';
+        }
+    </script>
+
+</body>
+</html>
